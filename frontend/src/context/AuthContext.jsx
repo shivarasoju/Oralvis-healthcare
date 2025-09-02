@@ -8,6 +8,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -24,10 +25,10 @@ export function AuthProvider({ children }) {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        { email, password }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+        email,
+        password,
+      });
       const { token, user } = response.data;
 
       localStorage.setItem("token", token);

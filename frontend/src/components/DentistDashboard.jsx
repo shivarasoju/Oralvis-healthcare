@@ -9,13 +9,15 @@ function DentistDashboard() {
 
   const { user, logout } = useAuth();
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     fetchScans();
   }, []);
 
   const fetchScans = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/scans");
+      const response = await axios.get(`${API_BASE_URL}/api/scans`);
       setScans(response.data);
     } catch (error) {
       setError("Failed to fetch scans");

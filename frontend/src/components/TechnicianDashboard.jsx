@@ -3,6 +3,8 @@ import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 
 function TechnicianDashboard() {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   const [formData, setFormData] = useState({
     patientName: "",
     patientId: "",
@@ -39,15 +41,11 @@ function TechnicianDashboard() {
     data.append("scanImage", formData.scanImage);
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/upload",
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/upload`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setMessage("Scan uploaded successfully!");
       setFormData({
