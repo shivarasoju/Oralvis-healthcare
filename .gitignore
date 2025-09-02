@@ -1,0 +1,45 @@
+# =========================
+# Node.js / Backend
+# =========================
+node_modules/
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+.cache/
+
+# =========================
+# React / Frontend
+# =========================
+# dependencies
+Frontend/node_modules/
+
+# production build
+Frontend/build/
+Frontend/dist/
+
+# misc
+Frontend/.cache/
+Frontend/.env
+Frontend/.env.local
+Frontend/.env.*.local
+
+# =========================
+# System / Editors
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
